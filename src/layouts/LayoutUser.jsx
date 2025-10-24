@@ -9,7 +9,7 @@ const LayoutUser = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (getRol != "user") {
+    if (getRol() != "user") {
       navigate("/");
     }
   }, []);

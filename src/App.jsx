@@ -5,6 +5,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
+//ADMIN
+import Panel from "./pageadmin/Panel.jsx";
 
 //LAYOUTS
 import LayoutPublic from "./layouts/LayoutPublic.jsx";
@@ -33,7 +35,7 @@ const App = () => {
                     </Route>
                     <Route element={<ProtectedRoutes />}>
                         <Route path="/admin" element={<LayoutAdmin />}>
-                            <Route index element={<PageHome />} />
+                            <Route index element={<Panel />} />
                         </Route>
                         <Route path="/user" element={<LayoutUser />}>
                             <Route index element={<PageHome />} />

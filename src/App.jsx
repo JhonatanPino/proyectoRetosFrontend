@@ -1,25 +1,23 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 //ADMIN
-import Panel from "./pageadmin/Panel.jsx";
-
+import PanelAdmin from "./pageadmin/PanelAdmin.jsx";
+//USER
+import PanelUser from "./pageuser/PanelUser.jsx";
 //LAYOUTS
 import LayoutPublic from "./layouts/LayoutPublic.jsx";
 import LayoutAdmin from "./layouts/LayoutAdmin.jsx";
 import LayoutUser from "./layouts/LayoutUser.jsx";
-
 //PUBLIC
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PageHome from "./pagepublic/PageHome.jsx";
+//AUTH
 import ProtectedRoutes from "./pageauth/ProtectedRoutes.jsx";
 import Register from "./pageauth/Register.jsx";
-
-//AUTH
 import Login from "./pageauth/Login.jsx";
 
 const App = () => {
@@ -35,10 +33,10 @@ const App = () => {
                     </Route>
                     <Route element={<ProtectedRoutes />}>
                         <Route path="/admin" element={<LayoutAdmin />}>
-                            <Route index element={<Panel />} />
+                            <Route index element={<PanelAdmin />} />
                         </Route>
                         <Route path="/user" element={<LayoutUser />}>
-                            <Route index element={<PageHome />} />
+                            <Route index element={<PanelUser />} />
                         </Route>
                     </Route>
                 </Routes>

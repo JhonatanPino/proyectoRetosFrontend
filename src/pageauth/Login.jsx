@@ -1,81 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import Config, { setAuthToken } from '../Config';
 import { useNavigate } from 'react-router-dom';
+import Config from '../Config.jsx';
 import AuthUser from './AuthUser';
 import { toast } from 'react-toastify';
+import axios from 'axios';
+
 
 const Login = () => {
-  const { getToken } = AuthUser();
+  const { saveToken, getToken } = AuthUser(); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [message, setMessage] = useState(''); // <-- definir message para evitar error
   const navigate = useNavigate();
 
   useEffect(() => {
     if (getToken()) {
-      navigate('/');
+      navigate("/admin"); 
     }
-  }, [getToken, navigate]);
+  }, []);
 
   const submitLogin = async (e) => {
     e.preventDefault();
-    setErrorMsg(null);
-    setLoading(true);
-
-    try {
-      const { data } = await Config.getLogin({ username, password });
-      if (data.success) {
-        const successMsg = data.message || 'Login exitoso';
-        toast.success(successMsg);
-
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-          setAuthToken(data.token);
-        }
-
-        // Guardar user si viene en la respuesta
-        if (data.user) {
-          localStorage.setItem('user', JSON.stringify(data.user));
-        }
-
-        // Determinar rol: preferir data.user.role, si no está, intentar decodificar JWT
-        const roleFromUser = data.user?.role;
-        let role = roleFromUser;
-        if (!role && data.token) {
-          try {
-            const payload = JSON.parse(atob(data.token.split('.')[1]));
-            role = payload?.role || null;
-          } catch (e) {
-            role = null;
-          }
-        }
-
-        // Redirigir según rol
-        if (role === 'admin') {
-          navigate('/admin');
-        } else if (role === 'user') {
-          navigate('/user');
+    await axios.get('/sanctum/csrf-cookie').then((response) => {
+      Config.getLogin({ username, password })
+      .then(({ data }) => {
+        console.log(data);
+    
+        if (data?.token) {
+          saveToken(data.token, data.data, data.data.role);
+          toast.success(data.message || "Autenticacion exitosa.");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+                    
         } else {
-          navigate('/'); // fallback
+          toast.error("No se pudo completar la autenticacion.");
         }
-      } else {
-        const infoMsg = data.message || 'Credenciales incorrectas';
-        setErrorMsg(infoMsg);
-        toast.error(infoMsg);
-      }
-    } catch (err) {
-      console.error(err);
-      const resp = err?.response;
-      const serverMsg = resp?.data?.message || 'Error en el servidor';
-      setErrorMsg(serverMsg);
-      toast.error(serverMsg);
-    } finally {
-      setLoading(false);
-    }
+      })
+      .catch(({ response }) => {
+        console.log(response);
+        // Manejar errores del backend
+        if (response?.data?.message) {
+          toast.error(response.data.message);
+        } else {
+          toast.error("Error al ingresar. Inténtalo de nuevo.");
+        }
+      });
+    })
   };
-
+  
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -85,14 +57,12 @@ const Login = () => {
               <h1 className="text-center fw-bolder">LOGIN</h1>
 
               <form onSubmit={submitLogin}>
-                {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
-
                 <input
                   type="text"
                   className="form-control mt-3"
                   placeholder="Username:"
                   value={username}
-                  onChange={(e) => {setUsername(e.target.value); setErrorMsg(null); }}
+                  onChange={(e) => {setUsername(e.target.value);}}
                   required
                 />
                 <input
@@ -100,19 +70,16 @@ const Login = () => {
                   className="form-control mt-3"
                   placeholder="Password:"
                   value={password}
-                  onChange={(e) => {setPassword(e.target.value); setErrorMsg(null); }}
+                  onChange={(e) => {setPassword(e.target.value);}}
                   required
                 />
 
-                <button className="btn btn-primary mt-3 w-100" type="submit" disabled={loading}>
-                  {loading ? 'Ingresando...' : 'Enviar'}
-                </button>
+                <button className="btn btn-primary mt-3 w-100" type="submit" >Ingresar</button>
               </form>
 
-              <p className="text-center mt-3">{message}</p>
               <hr />
-              <p className="text-center mt-3">Primera vez... Debe Registrarse</p>
-              <a href="/register" className='btn btn-primary w-100'>Registro</a>
+              <p className="text-center mt-3">Primera vez, Debe Registrarse</p>
+              <a href="/register" className='btn btn-primary w-100'>Registrarme</a>
             </div>
           </div>
         </div>

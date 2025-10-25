@@ -5,11 +5,11 @@ import { Outlet, useNavigate } from "react-router-dom";
 import AuthUser from "../pageauth/AuthUser";
 
 const LayoutUser = () => {
-  const { getRol } = AuthUser();
+  const { getRole } = AuthUser();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (getRol() != "user") {
+    if (getRole() != "user") {
       navigate("/");
     }
   }, []);

@@ -6,6 +6,8 @@ import { ToastContainer } from 'react-toastify';
 
 //ADMIN
 import PanelAdmin from "./pageadmin/PanelAdmin.jsx";
+import UserAll from "./pageadmin/UserAll.jsx";
+
 //USER
 import PanelUser from "./pageuser/PanelUser.jsx";
 //LAYOUTS
@@ -34,8 +36,10 @@ const App = () => {
                     <Route element={<ProtectedRoutes />}>
                         <Route path="/admin" element={<LayoutAdmin />}>
                             <Route index element={<PanelAdmin />} />
+                            <Route path="user" element={<UserAll />}></Route>
                         </Route>
                         <Route path="/user" element={<LayoutUser />}>
+                            {/* <Route index element={<PageHome />} /> */}
                             <Route index element={<PanelUser />} />
                         </Route>
                     </Route>

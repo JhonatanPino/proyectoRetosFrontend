@@ -16,7 +16,7 @@ const LayoutUser = () => {
 
   return (
     <div>
-      <h2>USER</h2>
+      <h2>User layout</h2>
       <Navbar />
       <Outlet />
       <Footer />

@@ -10,8 +10,12 @@ import UserAll from "./pageadmin/UserAll.jsx";
 import CategoryAll from "./pageadmin/CategoryAll.jsx";
 import CategorStore from "./pageadmin/CategoryStore.jsx";
 import CategoryUpdate from "./pageadmin/CategoryUpdate.jsx";
+import ChallengeAll from "./pageadmin/ChallengeAll.jsx";
+import ChallengeStore from "./pageadmin/ChallengeStore.jsx";
+import ChallengeUpdate from "./pageadmin/ChallengeUpdate.jsx";
 //USER
 import PanelUser from "./pageuser/PanelUser.jsx";
+import UserMe from "./pageuser/UserMe.jsx";
 //LAYOUTS
 import LayoutPublic from "./layouts/LayoutPublic.jsx";
 import LayoutAdmin from "./layouts/LayoutAdmin.jsx";
@@ -23,6 +27,8 @@ import Login from "./pageauth/Login.jsx";
 //AUTH
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "./pageauth/ProtectedRoutes.jsx";
+import Dashboard from "./pageauth/Dashboard.jsx";
+
 
 const App = () => {
     return (
@@ -37,15 +43,22 @@ const App = () => {
                     </Route>
                     <Route element={<ProtectedRoutes />}>
                         <Route path="/admin" element={<LayoutAdmin />}>
-                            <Route index element={<PanelAdmin />} />
+                            <Route index element={<Dashboard />} />
+                            <Route path="panel" element={<PanelAdmin />} />
+                            <Route path="info" element={<Dashboard />} />
                             <Route path="user" element={<UserAll />} />
                             <Route path="category" element={<CategoryAll />} />
                             <Route path="category/create" element={<CategorStore />} />
                             <Route path="category/edit/:id" element={<CategoryUpdate />} />
+                            <Route path="challenge" element={<ChallengeAll />} />
+                            <Route path="challenge/create" element={<ChallengeStore />} />
+                            <Route path="challenge/edit/:id" element={<ChallengeUpdate />} />
                         </Route>
                         <Route path="/user" element={<LayoutUser />}>
-                            <Route index element={<PageHome />} />
-                            <Route index element={<PanelUser />} />
+                            <Route index element={<Dashboard />} />
+                            <Route path="panel" element={<PanelUser />} />
+                            <Route path="info" element={<Dashboard />} />
+                            <Route path="user" element={<UserMe />} />
                         </Route>            
                     </Route>
                 </Routes>

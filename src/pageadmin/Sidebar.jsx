@@ -1,16 +1,31 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import AuthUser from '../pageauth/AuthUser'
 
 const Sidebar = () => {
-  return (
-    <div className='col-sm-3 pt-3 pb-3'>
-        <div className="list-group">            
-            <NavLink to={`/admin/user`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Usuarios</NavLink>
-            <NavLink to={`/admin/category`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Categorias</NavLink>
-            <NavLink to={`/admin/challenge`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Retos</NavLink>
-        </div>
-    </div>
-  )
-}
+  const {getRole} = AuthUser();
 
+  if (getRole() === 'admin') {
+    return (
+      <div className='col-sm-2 pt-3 pb-3'>
+          <div className="list-group">            
+              <NavLink to={`/admin/user`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Usuarios</NavLink>
+              <NavLink to={`/admin/category`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Categorias</NavLink>
+              <NavLink to={`/admin/challenge`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Retos</NavLink>
+          </div>
+      </div>
+    )
+  }
+  else if (getRole() === 'user') {
+    return (
+      <div className='col-sm-2 pt-3 pb-3'>
+          <div className="list-group">            
+              <NavLink to={`/user/user`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Mi usuario</NavLink>
+              <NavLink to={`/user/category`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Categorias</NavLink>
+              <NavLink to={`/user/challenge`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Retos</NavLink>
+          </div>
+      </div>
+    )
+  }
+}
 export default Sidebar

@@ -1,9 +1,38 @@
-import React from 'react'
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthUser from '../pageauth/AuthUser';
 
 const PageHome = () => {
-    return (
-        <div>PageHome</div>
-    )
-}
+    const { getRole, getToken } = AuthUser(); 
+    const navigate = useNavigate();
 
-export default PageHome
+    const handleExploreClick = () => {
+        if (!getToken()) {
+            navigate('/login');
+        } else {
+            navigate(`/${getRole()}/challenge`);
+        }
+    };
+
+    return (
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-8 text-center">
+                    <h1 className="mb-4">¡Bienvenido a la Plataforma de Retos!</h1>
+                    <p className="lead">
+                        Participa en retos emocionantes, mejora tus habilidades y compite con otros usuarios. 
+                        Explora categorías interesantes y demuestra tus conocimientos.
+                    </p>
+                    <button
+                        onClick={handleExploreClick}
+                        className="btn btn-primary btn-lg mt-3"
+                    >
+                        Explorar Retos
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default PageHome;

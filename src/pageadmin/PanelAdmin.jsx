@@ -6,8 +6,12 @@ const PanelAdmin = () => {
     <div className="container bg-light mt-3">
       <div className='row justify-content-center mt- mb-5'>
         <Sidebar />
-        <div className='col-sm-9'>
-          <h1 className='text-center mt-3'>ADMIN</h1>
+        <div className='col-sm-10 pt-3'>
+          <div className='card'>
+            <div className='card-body pt-2'>
+                <h2 className='text-center mt-3'>ADMINISTRADOR</h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>

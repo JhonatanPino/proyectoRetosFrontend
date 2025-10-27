@@ -16,7 +16,6 @@ const LayoutUser = () => {
 
   return (
     <div>
-      <h2>User layout</h2>
       <Navbar />
       <Outlet />
       <Footer />

@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Config from '../Config'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const CategoryAll = () => {
     const [categories, setCategories] = useState([])
-    const navigate = useNavigate();
   
     useEffect(() => {
         _getCategoryAll();
@@ -34,16 +32,19 @@ const CategoryAll = () => {
         <div className="container bg-light mt-3">
             <div className="row">
             <Sidebar />
-                <div className='col-sm-9 mt-3 mb-3'>
+                <div className='col-sm-10 mt-3 mb-3'>
                     <div className='card'>
-                        <div className='card-body pt-2'>
+                        <div className='card-body pt-0'>
                             <Link to={'/admin/category/create'} className='btn btn-primary m-3 ms-2'>Crear nueva categoria</Link>
+                            <hr style={{ margin: "5px" }}/>
+                            <h3 className='text-center'>Lista de categorias</h3>
+                            <hr style={{ margin: "5px" }}/>
                             <table className='table'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Accion</th>
+                                        <th style={{ width: "20%" }}>ID</th>
+                                        <th style={{ width: "60%" }}>Nombre</th> 
+                                        <th style={{ width: "20%" }}>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +59,7 @@ const CategoryAll = () => {
                                                     <td>{category.id}</td>
                                                     <td>{category.name}</td>
                                                     <td>
-                                                        <Link to={`/admin/category/edit/${category.id}`} className='btn btn-primary me-4'>Editar</Link>
+                                                        <Link to={`/admin/category/edit/${category.id}`} className='btn btn-primary me-2'>Editar</Link>
                                                         <button className='btn btn-primary ms-3' onClick={()=> _deleteCategoryById(category.id)}>Eliminar</button>
                                                     </td>
                                                 </tr>

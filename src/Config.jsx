@@ -19,6 +19,55 @@ export default{
     },
 
     //USERS AUTHENTICATED
+    getUserMe: () => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`${base_api_url}/users/me`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getChallengeAll: () => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`${base_api_url}/challenges`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getChallengeById: (id) => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`${base_api_url}/challenges/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getChallengeDeleteById: (id) => {
+        const token = sessionStorage.getItem('token');
+        return axios.delete(`${base_api_url}/challenges/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getChallengeUpdate: (id, data) => {
+        const token = sessionStorage.getItem('token');
+        return axios.put(`${base_api_url}/challenges/${id}`, data, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getChallengeStore: (data) => {
+        const token = sessionStorage.getItem('token');
+        return axios.post(`${base_api_url}/challenges`, data, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+
 
     //ADMIN AUTHENTICATED
     getUserAll: () => {

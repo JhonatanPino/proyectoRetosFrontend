@@ -71,9 +71,9 @@ const AuthUser = () => {
 
         console.log("Rol del usuario:", role);
         if(role === "admin")
-            navigate('/admin')
+            navigate('/admin/info')
         if(role === "user")
-            navigate('/user')
+            navigate('/user/info')
     }
 
     const getLogout = () => {

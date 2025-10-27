@@ -19,9 +19,11 @@ const UserAll = () => {
     <div className="container bg-light mt-3">
         <div className="row">
         <Sidebar />
-            <div className='col-sm-9 mt-3 mb-3'>
+            <div className='col-sm-10 mt-3 mb-3'>
                 <div className='card'>
                     <div className='card-body pt-2'>
+                        <h3 className='text-center'>Lista de usuarios</h3>
+                        <hr style={{ margin: "5px" }}/>
                         <table className='table'>
                             <thead>
                                 <tr>

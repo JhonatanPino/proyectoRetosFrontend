@@ -3,17 +3,8 @@ import AuthUser from "../pageauth/AuthUser";
 import Config from "../Config.jsx";
 
 const Navbar = () => {
-    const {getLogout, getToken, getRole} = AuthUser() 
+    const { getToken, getRole } = AuthUser() 
 
-    const logoutUser = () => {
-        Config.getLogout('/logout')
-        .then((response) => {
-            getLogout();
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
-/*
     const logoutUser = async () => {
         try {
             await Config.getLogout();
@@ -23,19 +14,25 @@ const Navbar = () => {
             console.error('Error al cerrar sesión:', error.response?.data?.message || error.message);
         }
     };
-*/
+
     const renderLinks = () => {
         if(getToken()){
             return (
                 <>
-                <li className="nav-item me-3">
-                <a className="nav-link" href="#">Categorias</a>
+                <li className="nav-item me-3 ms-3">
+                    <a className="nav-link active" aria-current="page" href={`/${getRole()}/info`}>Dashboard</a>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href="#">Retos</a>
+                <a className="nav-link" href={`/${getRole()}/user`}>Usuarios</a>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href={`/${getRole()}`}>Administracion</a>
+                <a className="nav-link" href={`/${getRole()}/category`}>Categorias</a>
+                </li>
+                <li className="nav-item me-3">
+                <a className="nav-link" href={`/${getRole()}/challenge`}>Retos</a>
+                </li>
+                <li className="nav-item me-3">
+                <a className="nav-link" href={`/${getRole()}/panel`}>Administracion</a>
                 </li>
                 <li className="nav-item ms-auto">
                 <a className="nav-link" href="#" onClick={logoutUser}>Cerrar Sesion</a>
@@ -57,18 +54,11 @@ const Navbar = () => {
     }
     return (
         <>
+        <hr style={{ margin: "0",borderTop: "2px solid #0b0b0bff" }}/>
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container">
                 <a className="navbar-brand" href="/">PlataformaRetos</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ">
-                        <li className="nav-item me-3 ms-3">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                    </ul>
                     <ul className="navbar-nav w-100">
                         {renderLinks()}
                     </ul>

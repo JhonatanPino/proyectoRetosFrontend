@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 const Login = () => {
-  const { saveToken, getToken } = AuthUser(); 
+  const { saveToken, getToken, getRole} = AuthUser(); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Login = () => {
           saveToken(data.token, data.data, data.data.role);
           toast.success(data.message || "Autenticacion exitosa.");
           setTimeout(() => {
-            navigate("/");
+            navigate(`/${getRole()}/info`);
           }, 2000);
                     
         } else {

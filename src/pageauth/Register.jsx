@@ -27,7 +27,7 @@ import { toast } from 'react-toastify';
                     toast.success(data.message || "Registro exitoso.");
                     setTimeout(() => {
                         navigate("/login");
-                    }, 2000); // Espera 2 segundos antes de redirigir
+                    }, 2000);
                 } else {
                     toast.error("No se pudo completar el registro.");
                 }

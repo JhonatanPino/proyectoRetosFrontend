@@ -6,10 +6,10 @@ const UserAll = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        getUserAll();
+        _getUserAll();
     },[])
 
-    const getUserAll = async () => {
+    const _getUserAll = async () => {
         const response = await Config.getUserAll();
         console.log(response.data)
         setUsers(response.data.data)

@@ -10,10 +10,10 @@ export default{
 
     //ALL AUTHENTICATED
     getLogout: () => {
-        const token = sessionStorage.getItem('token'); // Obtén el token almacenado
+        const token = sessionStorage.getItem('token');
         return axios.post(`${base_api_url}/logout`, {}, {
             headers: {
-                Authorization: `Bearer ${token}` // Incluye el token en el encabezado Authorization
+                Authorization: `Bearer ${token}`
             }
         });
     },
@@ -22,10 +22,51 @@ export default{
 
     //ADMIN AUTHENTICATED
     getUserAll: () => {
-        const token = sessionStorage.getItem('token'); // Obtén el token almacenado en sessionStorage
+        const token = sessionStorage.getItem('token');
         return axios.get(`${base_api_url}/users`, {
             headers: {
-                Authorization: `Bearer ${token}` // Incluye el token en el encabezado Authorization
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getCategoryAll: () => {
+        const token = sessionStorage.getItem('token');  
+        return axios.get(`${base_api_url}/categories`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getCategoryStore: (data) => {
+        const token = sessionStorage.getItem('token'); 
+        return axios.post(`${base_api_url}/categories`, data, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getCategoryById: (id) => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`${base_api_url}/categories/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
+    getCategoryUpdate: (id, data) => {
+        const token = sessionStorage.getItem('token');
+        return axios.put(`${base_api_url}/categories/${id}`, data, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+
+    },
+    getCategoryDeleteById: (id) => {
+        const token = sessionStorage.getItem('token');
+        return axios.delete(`${base_api_url}/categories/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
             }
         });
     },

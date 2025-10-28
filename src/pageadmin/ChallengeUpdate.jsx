@@ -6,9 +6,9 @@ import { toast } from 'react-toastify';
 
 const ChallengeUpdate = () => {
     const { id } = useParams();
-    const [categories, setCategories] = useState([]); // Estado para las categorías
+    const [categories, setCategories] = useState([]); 
     const [category_id, setCategoryId] = useState("");
-    const [category_name, setCategoryName] = useState(""); // Estado para el nombre de la categoría
+    const [category_name, setCategoryName] = useState(""); 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [score_value, setScoreValue] = useState("");
@@ -24,7 +24,7 @@ const ChallengeUpdate = () => {
         const fetchCategories = async () => {
             try {
                 const response = await Config.getCategoryAll();
-                setCategories(response.data.data); // Carga las categorías
+                setCategories(response.data.data); 
             } catch (error) {
                 console.error("Error fetching categories:", error);
                 toast.error("Error al cargar las categorías.");
@@ -67,7 +67,6 @@ const ChallengeUpdate = () => {
                 updatedAnswers[i].is_correct = i === index;
             });
         } else {
-            // Actualiza el campo normalmente (para "description" o desactivar un checkbox)
             updatedAnswers[index][field] = value;
         }
 

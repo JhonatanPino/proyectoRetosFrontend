@@ -27,7 +27,6 @@ const ChallengeStoreAI = () => {
     const submitStore = async (e) => {
         e.preventDefault();
         try {
-            // Envía los datos al backend
             await Config.getChallengeStoreAI({
                 category_id,
                 score_value,

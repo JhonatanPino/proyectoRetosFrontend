@@ -47,7 +47,6 @@ const ChallengeStore = () => {
     const submitStore = async (e) => {
         e.preventDefault();
         try {
-            // Envía los datos al backend
             await Config.getChallengeStore({
                 category_id,
                 name,

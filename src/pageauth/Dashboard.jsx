@@ -17,12 +17,14 @@ const Dashboard = () => {
         <div className="container mt-4">
             <h1 className="text-center">Panel Principal</h1>
             <div className="mt-4">
-                <div className="card mb-4">
-                    <div className="card-body">
-                        <h5 className="card-title">Información del Usuario</h5>
-                        <p><strong>Nombre de usuario:</strong> {user.username}</p>
-                        <p><strong>Puntaje:</strong> {user.score}</p>
-                        <p><strong>Rol:</strong> {role}</p>
+                <div className="d-flex justify-content-center mb-5" >
+                    <div className="card pt-2" style={{ width: "40%" }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Información del Usuario</h5>
+                            <p><strong>Nombre de usuario:</strong> {user.username}</p>
+                            <p><strong>Puntaje:</strong> {user.score}</p>
+                            <p><strong>Rol:</strong> {role}</p>
+                        </div>
                     </div>
                 </div>
                 {role === "admin" ? (
@@ -67,7 +69,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Participar en retos</h5>
                                         <p className="card-text">Compite en retos y mejora tu puntuación.</p>
-                                        <a href="/user/challenge" className="btn btn-primary">Explorar</a>
+                                        <a href="/user/category/:categoryId/challenges" className="btn btn-primary">Explorar</a>
                                     </div>
                                 </div>
                             </div>

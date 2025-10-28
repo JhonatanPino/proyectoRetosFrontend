@@ -7,18 +7,18 @@ const AuthUser = () => {
     const getToken = () => {
         const tokenString = sessionStorage.getItem('token');
         try {
-            return tokenString ? JSON.parse(tokenString) : null; // Si está almacenado como JSON
+            return tokenString ? JSON.parse(tokenString) : null; 
         } catch (error) {
-            return tokenString; // Si no es JSON, devolver tal cual
+            return tokenString; 
         }
     };
 
     const getRole = () => {
         const roleString = sessionStorage.getItem('role');
         try {
-            return roleString ? JSON.parse(roleString) : null; // Si está almacenado como JSON
+            return roleString ? JSON.parse(roleString) : null; 
         } catch (error) {
-            return roleString?.replace(/"/g, ''); // Elimina comillas dobles si no es JSON
+            return roleString?.replace(/"/g, ''); 
         }
     };
 
@@ -34,27 +34,6 @@ const AuthUser = () => {
             return roleString;
         }
     };
-
-    
-/*
-    const getToken = () => {
-        const tokenString = sessionStorage.getItem('token')
-        const token = JSON.parse(tokenString)
-        return token;
-    }
-
-    const getRole = () => {
-        const roleString = sessionStorage.getItem('role')
-        const role = JSON.parse(roleString)
-        return role;
-    }
-
-    const getUser = () => {
-        const userString = sessionStorage.getItem('user')
-        const user = JSON.parse(userString)
-        return user;
-    }
-*/
     
     const [token, setToken] = useState();
     const [user, setUser] = useState();

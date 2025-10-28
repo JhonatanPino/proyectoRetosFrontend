@@ -17,6 +17,9 @@ import ChallengeStoreAI from "./pageadmin/ChallengeStoreAI.jsx";
 //USER
 import PanelUser from "./pageuser/PanelUser.jsx";
 import UserMe from "./pageuser/UserMe.jsx";
+import CategoryAllUser from "./pageuser/CategoryAllUser.jsx";
+import ChallengeForCategory from "./pageuser/ChallengeForCategory.jsx";
+import ChallengeSolve from "./pageuser/ChallengeSolve.jsx";
 //LAYOUTS
 import LayoutPublic from "./layouts/LayoutPublic.jsx";
 import LayoutAdmin from "./layouts/LayoutAdmin.jsx";
@@ -61,6 +64,9 @@ const App = () => {
                             <Route path="panel" element={<PanelUser />} />
                             <Route path="info" element={<Dashboard />} />
                             <Route path="user" element={<UserMe />} />
+                            <Route path="category" element={<CategoryAllUser />} />
+                            <Route path="category/:categoryId/challenges" element={<ChallengeForCategory />} />
+                            <Route path="challenge/solve/:challengeId" element={<ChallengeSolve />} />
                         </Route>            
                     </Route>
                 </Routes>
@@ -70,14 +76,3 @@ const App = () => {
 };
 
 export default App;
-/*
-if (document.getElementById('root')) {
-    const Index = ReactDOM.createRoot(document.getElementById("root"));
-
-    Index.render(
-        <React.StrictMode>
-            <App/>
-        </React.StrictMode>
-    )
-}
-*/

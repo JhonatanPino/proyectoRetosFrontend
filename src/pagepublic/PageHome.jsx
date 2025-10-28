@@ -9,8 +9,10 @@ const PageHome = () => {
     const handleExploreClick = () => {
         if (!getToken()) {
             navigate('/login');
-        } else {
-            navigate(`/${getRole()}/challenge`);
+        } else if (getRole() === 'admin') {
+            navigate(`/admin/challenge`);
+        } else{
+            navigate(`/user/category/:categoryId/challenges`);
         }
     };
 

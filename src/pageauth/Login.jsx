@@ -38,7 +38,6 @@ const Login = () => {
       })
       .catch(({ response }) => {
         console.log(response);
-        // Manejar errores del backend
         if (response?.data?.message) {
           toast.error(response.data.message);
         } else {

@@ -17,6 +17,14 @@ export default{
             }
         });
     },
+    getUserAll: () => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`${base_api_url}/users`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        });
+    },
 
     //USERS AUTHENTICATED
     getUserMe: () => {
@@ -27,18 +35,32 @@ export default{
             }
         });
     },
-    
-    //ADMIN AUTHENTICATED
-    // USERS
-    getUserAll: () => {
+    getChallengesByCategory: (categoryId) => {
         const token = sessionStorage.getItem('token');
-        return axios.get(`${base_api_url}/users`, {
+        return axios.get(`${base_api_url}/categories/${categoryId}/challenges`, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
         });
     },
-
+    getChallengeById: (challengeId) => {
+        const token = sessionStorage.getItem('token');
+        return axios.get(`/api/challenges/${challengeId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    },
+    submitChallengeAnswer: (challengeId, payload) => {
+        const token = sessionStorage.getItem('token');
+        return axios.post(`/api/challenges/${challengeId}/submit`, payload, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    },
+    
+    //ADMIN AUTHENTICATED 
     // CATEGORIES
     getCategoryAll: () => {
         const token = sessionStorage.getItem('token');  

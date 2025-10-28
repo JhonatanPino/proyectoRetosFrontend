@@ -22,7 +22,7 @@ const ChallengeStore = () => {
         const fetchCategories = async () => {
             try {
                 const response = await Config.getCategoryAll();
-                setCategories(response.data.data); // Asigna las categorías al estado
+                setCategories(response.data.data); 
             } catch (error) {
                 console.error("Error fetching categories:", error);
                 toast.error("Error al cargar las categorías.");
@@ -124,7 +124,7 @@ const ChallengeStore = () => {
                                 <div className="mb-3">
                                     <label className="form-label fw-bold">Respuestas:</label>
                                     {answers.map((answer, index) => (
-                                        <div key={index} className="mb-2 d-flex align-items-center">
+                                        <div key={index} className="mb-0 d-flex align-items-center">
                                             <input
                                                 type="text"
                                                 className="form-control mb-3"
@@ -136,7 +136,7 @@ const ChallengeStore = () => {
                                                 }
                                                 required
                                             />
-                                            <div className="form-check d-flex align-items-center justify-content-end pe-4"
+                                            <div className="form-check d-flex align-items-center justify-content-end mb-3 pe-3"
                                                 style={{ flex: "0 0 20%" }}>
                                                 <input
                                                     type="checkbox"

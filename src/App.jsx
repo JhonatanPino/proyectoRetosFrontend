@@ -13,6 +13,7 @@ import CategoryUpdate from "./pageadmin/CategoryUpdate.jsx";
 import ChallengeAll from "./pageadmin/ChallengeAll.jsx";
 import ChallengeStore from "./pageadmin/ChallengeStore.jsx";
 import ChallengeUpdate from "./pageadmin/ChallengeUpdate.jsx";
+import ChallengeStoreAI from "./pageadmin/ChallengeStoreAI.jsx";
 //USER
 import PanelUser from "./pageuser/PanelUser.jsx";
 import UserMe from "./pageuser/UserMe.jsx";
@@ -53,6 +54,7 @@ const App = () => {
                             <Route path="challenge" element={<ChallengeAll />} />
                             <Route path="challenge/create" element={<ChallengeStore />} />
                             <Route path="challenge/edit/:id" element={<ChallengeUpdate />} />
+                            <Route path="challenge/create/ai" element={<ChallengeStoreAI />} />
                         </Route>
                         <Route path="/user" element={<LayoutUser />}>
                             <Route index element={<Dashboard />} />

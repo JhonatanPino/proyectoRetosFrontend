@@ -142,7 +142,7 @@ const ChallengeUpdate = () => {
                                 <div className="mb-3">
                                     <label className="form-label fw-bold">Respuestas:</label>
                                     {answers.map((answer, index) => (
-                                        <div key={index} className="mb-2 d-flex align-items-center">
+                                        <div key={index} className="mb-3 d-flex align-items-center">
                                             <input
                                                 type="text"
                                                 className="form-control me-3"

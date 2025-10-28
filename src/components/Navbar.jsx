@@ -1,10 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import AuthUser from "../pageauth/AuthUser";
 import Config from "../Config.jsx";
 
 const Navbar = () => {
-    const { getToken, getRole } = AuthUser() 
-
+    const { getToken, getRole, getUser} = AuthUser() 
     const logoutUser = async () => {
         try {
             await Config.getLogout();
@@ -20,7 +19,7 @@ const Navbar = () => {
             return (
                 <>
                 <li className="nav-item me-3 ms-3">
-                    <a className="nav-link active" aria-current="page" href={`/${getRole()}/info`}>Dashboard</a>
+                    <a className="nav-link active" aria-current="page" href={`/${getRole()}/info`}>Panel</a>
                 </li>
                 <li className="nav-item me-3">
                 <a className="nav-link" href={`/${getRole()}/user`}>Usuarios</a>
@@ -31,10 +30,17 @@ const Navbar = () => {
                 <li className="nav-item me-3">
                 <a className="nav-link" href={`/${getRole()}/challenge`}>Retos</a>
                 </li>
-                <li className="nav-item me-3">
-                <a className="nav-link" href={`/${getRole()}/panel`}>Administracion</a>
-                </li>
-                <li className="nav-item ms-auto">
+                {getRole() === 'admin' && (
+                    <li className="nav-item ms-auto">
+                        <a className="nav-link" href={`/${getRole()}/panel`}>Administracion | {getUser()?.username}</a>
+                    </li>
+                )}
+                {getRole() === 'user' && (
+                    <li className="nav-item ms-auto">
+                        <a className="nav-link" href={`/${getRole()}/panel`}>Bienvenido | {getUser()?.username}</a>
+                    </li>
+                )}
+                <li className="nav-item me-3 ms-3">
                 <a className="nav-link" href="#" onClick={logoutUser}>Cerrar Sesion</a>
                 </li>
                 </>
@@ -46,7 +52,7 @@ const Navbar = () => {
                 <a className="nav-link" href="/register">Registrarme</a>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href="/login">Login</a>
+                <a className="nav-link" href="/login">Acceso</a>
                 </li>
                 </> 
             )

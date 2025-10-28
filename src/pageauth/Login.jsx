@@ -54,7 +54,7 @@ const Login = () => {
         <div className="col-sm-4">
           <div className="card mt-5 mb-5">
             <div className="card-body">
-              <h1 className="text-center fw-bolder">LOGIN</h1>
+              <h1 className="text-center fw-bolder">ACCESO</h1>
 
               <form onSubmit={submitLogin}>
                 <input

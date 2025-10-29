@@ -1,3 +1,56 @@
+# Plataforma de Retos - Frontend
+Este es el frontend de la **Plataforma de Retos**, una aplicación diseñada para gestionar retos, categorías, respuestas y puntuaciones de usuarios. La plataforma permite a los usuarios participar en retos y mejorar su puntuación, mientras que los administradores pueden gestionar usuarios, categorías y retos.
+
+El frontend está desarrollado en **React** y se comunica con un backend en Laravel a través de una API REST. La autenticación se maneja mediante **JWT (JSON Web Tokens)**.
+
+## 🌍 Enlace del proyecto
+🔗 [Mi App Laravel + React](https://miapp.vercel.app)
+
+## 🚀 Propósito del Proyecto
+El propósito de esta plataforma es ofrecer una experiencia interactiva para que los usuarios puedan:
+- Participar en retos y mejorar su puntuación.
+- Explorar categorías y consultar sus estadísticas.
+- Los administradores pueden gestionar usuarios, categorías y retos.
+
+## 🛠️ Requisitos del Entorno de Desarrollo
+Antes de comenzar, asegúrate de tener instalados los siguientes requisitos:
+
+- **Node.js** (v16 o superior): [Descargar Node.js](https://nodejs.org/)
+- **npm** (v8 o superior): Incluido con Node.js.
+- **Backend Laravel**: Asegúrate de que el backend esté configurado y ejecutándose. Consulta el README del backend para más detalles.
+
+### Configuración del Proyecto
+1. Clona el repositorio:
+ git clone https://github.com/tu-usuario/proyectoRetosFrontend.git
+ cd proyectoRetosFrontend
+
+2. Instala las dependencias:
+ npm install
+
+## Ejecución del Proyecto
+1. Inicia el servidor de desarrollo:
+ npm start
+
+2. Abre el navegador:
+ Ve a http://localhost:5173 para ver la aplicación en ejecución.
+
+3. Asegúrate de que el backend esté ejecutándose en http://localhost:8000 o la URL configurada en REACT_APP_API_URL. 
+
+## Estructura del proyecto
+src/
+├── components/         # Componentes reutilizables (Navbar, Sidebar, etc.)
+├── pageauth/           # Páginas relacionadas con autenticación (Dashboard, Login, etc.)
+├── pageuser/           # Páginas para usuarios (Retos, Categorías, etc.)
+├── pageadmin/          # Páginas para administradores (Gestión de usuarios, retos, etc.)
+├── Config.jsx          # Configuración de la API y servicios
+├── App.jsx             # Configuración de rutas principales
+└── index.jsx           # Punto de entrada de la aplicación
+
+## Licencia
+Este proyecto está bajo la licencia MIT.
+
+## Soporte
+Si tienes preguntas o necesitas ayuda, no dudes en abrir un Issue en el repositorio o contactarme a través de mi correo electrónico.
 
 # React + Vite
 

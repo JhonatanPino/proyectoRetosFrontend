@@ -50,10 +50,10 @@ const Login = () => {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-sm-4">
-          <div className="card mt-5 mb-5">
-            <div className="card-body">
-              <h1 className="text-center fw-bolder">ACCESO</h1>
+        <div className="col-sm-8 col-md-6 col-lg-4">
+          <div className="card mt-4 mb-4">
+            <div className="card-body p-3 p-md-4">
+              <h1 className="text-center fw-bolder fs-4 fs-md-3">ACCESO</h1>
 
               <form onSubmit={submitLogin}>
                 <input
@@ -73,8 +73,7 @@ const Login = () => {
                   required
                 />
 
-                <button className="btn btn-primary mt-3 w-100" type="submit" >Ingresar</button>
-              </form>
+                <button className="btn btn-primary mt-3 w-100" type="submit">Ingresar</button>              </form>
 
               <hr />
               <p className="text-center mt-3">Primera vez, Debe Registrarse</p>

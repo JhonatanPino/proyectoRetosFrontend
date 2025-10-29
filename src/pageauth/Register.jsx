@@ -45,10 +45,10 @@ import { toast } from 'react-toastify';
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="col-sm-4">
-          <div className="card mt-5 mb-5">
-            <div className="card-body">
-              <h1 className="text-center fw-bolder">REGISTRO</h1>
+        <div className="col-sm-8 col-md-6 col-lg-4">
+          <div className="card mt-4 mb-4">
+            <div className="card-body p-3 p-md-4">
+              <h1 className="text-center fw-bolder fs-4 fs-md-3">ACCESO</h1>
 
               <form onSubmit={submitRegistro}>
                 <input
@@ -68,7 +68,7 @@ import { toast } from 'react-toastify';
                   required
                 />
 
-                <button className="btn btn-primary mt-3 w-100" type="submit">Enviar</button>
+                <button className="btn btn-primary mt-3 w-100" type="submit">Ingresar</button>
               </form>
   
               <a href="#" className="d-block text-center mt-3">Términos y condiciones</a>

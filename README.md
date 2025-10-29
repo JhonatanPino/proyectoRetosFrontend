@@ -4,7 +4,7 @@ Este es el frontend de la **Plataforma de Retos**, una aplicación diseñada par
 El frontend está desarrollado en **React** y se comunica con un backend en Laravel a través de una API REST. La autenticación se maneja mediante **JWT (JSON Web Tokens)**.
 
 ## 🌍 Enlace del proyecto
-🔗 https://proyectoretosfrontend.onrender.com
+🔗 https://proyectoretos-frontend.onrender.com
 
 ## 🚀 Propósito del Proyecto
 El propósito de esta plataforma es ofrecer una experiencia interactiva para que los usuarios puedan:

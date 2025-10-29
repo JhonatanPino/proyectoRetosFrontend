@@ -41,10 +41,8 @@ const CategoryAllUser = () => {
                                             <div key={category.id} className="col-md-6 mb-4">
                                                 <div className="card h-100">
                                                     <div className="card-body">
-                                                        <p className="card-text">
-                                                            ID: {category.id}
-                                                        </p>
-                                                        <h5 className="card-title mb-4">{category.name}</h5>
+                                                        
+                                                        <h5 className="card-title mb-3">{category.name}</h5>
                                                         <button
                                                             className="btn btn-primary pe-4 ps-4"
                                                             onClick={() => handleViewChallenges(category.id)}

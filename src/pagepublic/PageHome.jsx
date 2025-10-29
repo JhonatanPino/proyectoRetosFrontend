@@ -27,7 +27,7 @@ const PageHome = () => {
                     </p>
                     <button
                         onClick={handleExploreClick}
-                        className="btn btn-primary btn-lg mt-3"
+                        className="btn btn-primary btn-lg mt-3 mb-3"
                     >
                         Explorar Retos
                     </button>

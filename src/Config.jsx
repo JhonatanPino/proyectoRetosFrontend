@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const base_api_url = "http://localhost:8000/api";
+const base_api_url = "http://proyectoretos-production.up.railway.app/api";
 
 export default{
     //PUBLIC

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Config from '../Config';
 import Sidebar from './Sidebar.jsx';
 import { toast } from 'react-toastify';
@@ -152,9 +152,10 @@ const ChallengeStore = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <Link to="/admin/challenge" className="btn btn-secondary me-3">
-                                    Cancelar
-                                </Link>
+                                <NavLink
+                                    to={`/admin/challenge/edit/${challenge.id}`}
+                                    className="btn btn-primary me-4"
+                                >Editar</NavLink>
                                 <button type="submit" className="btn btn-primary">
                                     Crear reto
                                 </button>

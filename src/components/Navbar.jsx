@@ -1,5 +1,6 @@
 import React from "react";
 import AuthUser from "../pageauth/AuthUser";
+import { NavLink } from "react-router-dom";
 import Config from "../Config.jsx";
 
 const Navbar = () => {
@@ -19,39 +20,38 @@ const Navbar = () => {
             return (
                 <>
                 <li className="nav-item me-3 ms-3">
-                    <a className="nav-link " aria-current="page" href={`/${getRole()}/info`}>Panel</a>
+                    <NavLink className="nav-link" aria-current="page" to={`/${getRole()}/info`}>Panel</NavLink>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href={`/${getRole()}/user`}>Usuarios</a>
+                    <NavLink className="nav-link" to={`/${getRole()}/user`}>Usuarios</NavLink>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href={`/${getRole()}/category`}>Categorias</a>
+                    <NavLink className="nav-link" to={`/${getRole()}/category`}>Categorias</NavLink>
                 </li>
-                
 
                 {getRole() === 'admin' && (
                     <li className="nav-item me-3">
-                        <a className="nav-link" href={`/${getRole()}/challenge`}>Retos</a>
+                        <NavLink className="nav-link" to={`/${getRole()}/challenge`}>Retos</NavLink>
                     </li>
                 )}
                 {getRole() === 'user' && (
                     <li className="nav-item me-3">
-                        <a className="nav-link" href={`/${getRole()}/category/:categoryId/challenges`}>Retos</a>
+                        <NavLink className="nav-link" to={`/user/category`}>Retos</NavLink>
                     </li>
                 )}
 
                 {getRole() === 'admin' && (
                     <li className="nav-item ms-auto">
-                        <a className="nav-link" href={`/${getRole()}/panel`}>Administracion | {getUser()?.username}</a>
+                        <NavLink className="nav-link" to={`/${getRole()}/panel`}>Administracion | {getUser()?.username}</NavLink>
                     </li>
                 )}
                 {getRole() === 'user' && (
                     <li className="nav-item ms-auto">
-                        <a className="nav-link" href={`/${getRole()}/panel`}>Bienvenido | {getUser()?.username}</a>
+                        <NavLink className="nav-link" to={`/${getRole()}/panel`}>Bienvenido | {getUser()?.username}</NavLink>
                     </li>
                 )}
                 <li className="nav-item me-3 ms-3">
-                <a className="nav-link" href="#" onClick={logoutUser}>Cerrar Sesion</a>
+                    <button className="btn btn-link nav-link p-0" onClick={logoutUser}>Cerrar Sesion</button>
                 </li>
                 </>
             )
@@ -59,10 +59,10 @@ const Navbar = () => {
             return (
                 <>
                 <li className="nav-item me-3">
-                <a className="nav-link" href="/register">Registrarme</a>
+                    <NavLink className="nav-link" to="/register">Registrarme</NavLink>
                 </li>
                 <li className="nav-item me-3">
-                <a className="nav-link" href="/login">Acceso</a>
+                    <NavLink className="nav-link" to="/login">Acceso</NavLink>
                 </li>
                 </> 
             )

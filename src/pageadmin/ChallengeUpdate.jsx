@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import Config from '../Config';
 import Sidebar from './Sidebar.jsx';
 import { toast } from 'react-toastify';
@@ -172,9 +172,9 @@ const ChallengeUpdate = () => {
                                     ))}
                                 </div>
 
-                                <Link to="/admin/challenge" className="btn btn-secondary me-3">
+                                <NavLink to="/admin/challenge" className="btn btn-secondary me-3">
                                     Cancelar
-                                </Link>
+                                </NavLink>
                                 <button type="submit" className="btn btn-primary">
                                     Actualizar reto
                                 </button>

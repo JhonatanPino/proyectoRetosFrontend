@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Config from '../Config'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const ChallengeAll = () => {
@@ -64,14 +64,14 @@ const ChallengeAll = () => {
                     <div className="card">
                         <div className="card-body pt-0">
                             <div className="mb-3 d-flex align-items-center">
-                                <Link
+                                <NavLink
                                     to={'/admin/challenge/create'}
                                     className="btn btn-primary mt-4 me-4 ms-2"
-                                >Crear nuevo reto</Link>
-                                <Link
+                                >Crear nuevo reto</NavLink>
+                                <NavLink
                                     to={'/admin/challenge/create/ai'}
                                     className="btn btn-primary mt-4 me-4"
-                                >Crear nuevo reto con OpenAI</Link>
+                                >Crear nuevo reto con OpenAI</NavLink>
                                 <div className="ms-auto" style={{ width: '350px' }}>
                                     <label htmlFor="categoryFilter" className="form-label fw-bold ms-2 mt-2 ">
                                         Filtrar por Categoría:
@@ -120,12 +120,10 @@ const ChallengeAll = () => {
                                                 <td>{challenge.description}</td>
                                                 <td>{challenge.score_value}</td>
                                                 <td>
-                                                    <Link
+                                                    <NavLink
                                                         to={`/admin/challenge/edit/${challenge.id}`}
                                                         className="btn btn-primary me-4"
-                                                    >
-                                                        Editar
-                                                    </Link>
+                                                    >Editar</NavLink>
                                                     <button
                                                         className="btn btn-primary"
                                                         onClick={() => _deleteChallengeById(challenge.id)}

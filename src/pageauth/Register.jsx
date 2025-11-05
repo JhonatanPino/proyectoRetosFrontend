@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Config from '../Config.jsx';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import AuthUser from './AuthUser';
 import { toast } from 'react-toastify';
 
@@ -71,7 +71,7 @@ import { toast } from 'react-toastify';
                 <button className="btn btn-primary mt-3 w-100" type="submit">Enviar</button>
               </form>
   
-              <a href="#" className="d-block text-center mt-3">Términos y condiciones</a>
+              <NavLink to="/terms" className="d-block text-center mt-3">Términos y condiciones</NavLink>
             </div>
           </div>
         </div>

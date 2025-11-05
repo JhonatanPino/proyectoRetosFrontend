@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Config from '../Config'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const CategoryAll = () => {
@@ -35,7 +35,7 @@ const CategoryAll = () => {
                 <div className='col-sm-10 mt-3 mb-3'>
                     <div className='card'>
                         <div className='card-body pt-0'>
-                            <Link to={'/admin/category/create'} className='btn btn-primary m-3 ms-2'>Crear nueva categoria</Link>
+                            <NavLink to={'/admin/category/create'} className='btn btn-primary m-3 ms-2'>Crear nueva categoria</NavLink>
                             <hr style={{ margin: "5px" }}/>
                             <h3 className='text-center'>Lista de categorias</h3>
                             <hr style={{ margin: "5px" }}/>
@@ -59,7 +59,7 @@ const CategoryAll = () => {
                                                     <td>{category.id}</td>
                                                     <td>{category.name}</td>
                                                     <td>
-                                                        <Link to={`/admin/category/edit/${category.id}`} className='btn btn-primary me-2'>Editar</Link>
+                                                        <NavLink to={`/admin/category/edit/${category.id}`} className='btn btn-primary me-2'>Editar</NavLink>
                                                         <button className='btn btn-primary ms-3' onClick={()=> _deleteCategoryById(category.id)}>Eliminar</button>
                                                     </td>
                                                 </tr>

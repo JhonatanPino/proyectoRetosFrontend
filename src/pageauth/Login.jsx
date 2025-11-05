@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import Config from '../Config.jsx';
 import AuthUser from './AuthUser';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 
 
 const Login = () => {
@@ -74,7 +73,7 @@ const Login = () => {
 
               <hr />
               <p className="text-center mt-3">Primera vez, Debe Registrarse</p>
-              <a href="/register" className='btn btn-primary w-100'>Registrarme</a>
+              <NavLink to="/register" className="btn btn-primary w-100">Registrarme</NavLink>
             </div>
           </div>
         </div>

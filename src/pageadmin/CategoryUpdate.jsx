@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import Config from '../Config';
 import Sidebar from './Sidebar.jsx';
 import { toast } from 'react-toastify';
@@ -52,7 +52,7 @@ const CategoryUpdate = () => {
                                         </div>
                                     </div>
                                     <div className='mt-3'>
-                                        <Link to={-1} className="btn btn-secondary">Cancelar</Link>
+                                        <NavLink to={-1} className="btn btn-secondary">Cancelar</NavLink>
                                         <button type='submit' className='btn btn-primary ms-3'>Actualizar categoria</button>
                                     </div>
                                 </form>

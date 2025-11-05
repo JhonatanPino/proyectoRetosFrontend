@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AuthUser from "./AuthUser";
+import { NavLink } from "react-router-dom";
 
 const Dashboard = () => {
     const { getRole, getUser } = AuthUser();
@@ -36,7 +37,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Gestionar usuarios</h5>
                                         <p className="card-text">Administra los usuarios registrados en la plataforma.</p>
-                                        <a href="/admin/user" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/admin/user" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Gestionar categorías</h5>
                                         <p className="card-text">Administra las categorías disponibles para los retos.</p>
-                                        <a href="/admin/category" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/admin/category" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +55,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Gestionar retos</h5>
                                         <p className="card-text">Crea, edita y elimina retos para los usuarios.</p>
-                                        <a href="/admin/challenge" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/admin/challenge" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +70,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Participar en retos</h5>
                                         <p className="card-text">Compite en retos y mejora tu puntuación.</p>
-                                        <a href="/user/category/:categoryId/challenges" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/user/category/:categoryId/challenges" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +79,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Ver Categorias</h5>
                                         <p className="card-text">Explora una serie de categorias disponibles.</p>
-                                        <a href="/user/category" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/user/category" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +88,7 @@ const Dashboard = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Consultar puntuaciones</h5>
                                         <p className="card-text">Revisa tus puntuaciones y preparate para otro reto.</p>
-                                        <a href="/user/user" className="btn btn-primary">Explorar</a>
+                                        <NavLink to="/user/user" className="btn btn-primary">Explorar</NavLink>
                                     </div>
                                 </div>
                             </div>

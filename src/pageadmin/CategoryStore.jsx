@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './Sidebar.jsx';
 import Config from '../Config.jsx';
-import { Link,  useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const CategoryStore = () => {
@@ -44,7 +44,7 @@ const CategoryStore = () => {
                                     </div>
                                 </div>
                                 <div className='mt-3'>
-                                    <Link to={-1} className="btn btn-secondary">Cancelar</Link>
+                                    <NavLink to={-1} className="btn btn-secondary">Cancelar</NavLink>
                                     <button type='submit' className='btn btn-primary ms-3'>Crear categoria</button>
                                 </div>
                             </form>

@@ -20,20 +20,18 @@ const Login = () => {
 
   const submitLogin = async (e) => {
     e.preventDefault();
-    await axios.get('/sanctum/csrf-cookie').then((response) => {
-      Config.getLogin({ username, password })
+    Config.getLogin({ username, password })
       .then(({ data }) => {
         console.log(data);
-    
+
         if (data?.token) {
           saveToken(data.token, data.data, data.data.role);
-          toast.success(data.message || "Autenticacion exitosa.");
+          toast.success(data.message || "Autenticación exitosa.");
           setTimeout(() => {
             navigate(`/${getRole()}/info`);
           }, 2000);
-                    
         } else {
-          toast.error("No se pudo completar la autenticacion.");
+          toast.error("No se pudo completar la autenticación.");
         }
       })
       .catch(({ response }) => {
@@ -44,7 +42,6 @@ const Login = () => {
           toast.error("Error al ingresar. Inténtalo de nuevo.");
         }
       });
-    })
   };
   
   return (

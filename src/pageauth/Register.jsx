@@ -48,7 +48,7 @@ import { toast } from 'react-toastify';
         <div className="col-sm-8 col-md-6 col-lg-4">
           <div className="card mt-4 mb-4">
             <div className="card-body p-3 p-md-4">
-              <h1 className="text-center fw-bolder fs-4 fs-md-3">ACCESO</h1>
+              <h1 className="text-center fw-bolder fs-4 fs-md-3">REGISTRO</h1>
 
               <form onSubmit={submitRegistro}>
                 <input
@@ -68,7 +68,7 @@ import { toast } from 'react-toastify';
                   required
                 />
 
-                <button className="btn btn-primary mt-3 w-100" type="submit">Ingresar</button>
+                <button className="btn btn-primary mt-3 w-100" type="submit">Enviar</button>
               </form>
   
               <a href="#" className="d-block text-center mt-3">Términos y condiciones</a>

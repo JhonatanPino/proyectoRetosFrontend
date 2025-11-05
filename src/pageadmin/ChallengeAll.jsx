@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const ChallengeAll = () => {
-    const [challenges, setChallenges] = useState([])
+    const [challenges, setChallenges] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
 

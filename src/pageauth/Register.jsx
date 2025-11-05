@@ -71,7 +71,7 @@ import { toast } from 'react-toastify';
                 <button className="btn btn-primary mt-3 w-100" type="submit">Enviar</button>
               </form>
   
-              <NavLink to="/terms" className="d-block text-center mt-3">Términos y condiciones</NavLink>
+              <NavLink to="#" className="d-block text-center mt-3">Términos y condiciones</NavLink>
             </div>
           </div>
         </div>

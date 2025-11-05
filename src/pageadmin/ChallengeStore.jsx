@@ -5,6 +5,7 @@ import Sidebar from './Sidebar.jsx';
 import { toast } from 'react-toastify';
 
 const ChallengeStore = () => {
+    const [challenge] = useState({});
     const [categories, setCategories] = useState([]);
     const [category_id, setCategoryId] = useState("");
     const [name, setName] = useState("");

@@ -37,6 +37,7 @@ const ChallengeSolve = () => {
             const payload = {
                 selected_answer_id: selectedAnswer, 
             };
+            console.log('Payload:', payload);
             const response = await Config.submitChallengeAnswer(challengeId, payload);
             alert(response.data.message); 
             toast.success('Respuesta enviada con éxito.');

@@ -60,10 +60,10 @@ const ChallengeForCategory = () => {
                                                             <button
                                                                 className="btn btn-success pe-4 ps-4"
                                                                 style={{ width: 'auto' }}
-                                                                onClick={() => window.location.href = `/user/challenge/solve/${challenge.id}`}
+                                                                onClick={() => navigate(`/user/challenge/solve/${challenge.id}`)}
                                                                 disabled={challenge.user_has_answered} 
                                                             >
-                                                                {challenge.user_has_answered ? 'Ya respondido' : 'Resolver reto'}
+                                                                {challenge.user_has_answered ? 'Ya resuelto' : 'Resolver reto'}
                                                             </button>
                                                         </div>
                                                     </div>
@@ -76,7 +76,7 @@ const ChallengeForCategory = () => {
                                 <div className="d-flex justify-content-center mt-3 ">
                                     <button
                                         className="btn btn-primary ps-3 pe-3"
-                                        onClick={() => (window.location.href = '/user/category')}
+                                        onClick={() => navigate('/user/category')}
                                     >
                                         Ir a Categorías
                                     </button>

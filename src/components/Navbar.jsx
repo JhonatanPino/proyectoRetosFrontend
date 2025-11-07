@@ -1,15 +1,17 @@
 import React from "react";
 import AuthUser from "../pageauth/AuthUser";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Config from "../Config.jsx";
 
 const Navbar = () => {
-    const { getToken, getRole, getUser} = AuthUser() 
+    const { getToken, getRole, getUser} = AuthUser()
+    const navigate = useNavigate(); 
+
     const logoutUser = async () => {
         try {
             await Config.getLogout();
             sessionStorage.clear();
-            window.location.href = '/login';
+            navigate('/login');
         } catch (error) {
             console.error('Error al cerrar sesión:', error.response?.data?.message || error.message);
         }
@@ -36,7 +38,7 @@ const Navbar = () => {
                 )}
                 {getRole() === 'user' && (
                     <li className="nav-item me-3">
-                        <NavLink className="nav-link" to={`/user/category`}>Retos</NavLink>
+                        <NavLink className="nav-link" to={`/${getRole()}/challenge`}>Retos</NavLink>
                     </li>
                 )}
 
@@ -73,7 +75,9 @@ const Navbar = () => {
             <hr style={{ margin: "0", borderTop: "2px solid #0b0b0bff" }} />
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container">
-                    <a className="navbar-brand" href="/">PlataformaRetos</a>
+                    <NavLink to="/" className="navbar-brand">
+                        🌲PlataformaRetos
+                    </NavLink>
                     <button
                         className="navbar-toggler"
                         type="button"

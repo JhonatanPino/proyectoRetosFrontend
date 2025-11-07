@@ -13,7 +13,7 @@ const Login = () => {
 
   useEffect(() => {
     if (getToken()) {
-      navigate("/admin"); 
+      navigate("/"); 
     }
   }, []);
 

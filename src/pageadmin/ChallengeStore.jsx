@@ -153,10 +153,9 @@ const ChallengeStore = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <NavLink
-                                    to={`/admin/challenge/edit/${challenge.id}`}
-                                    className="btn btn-primary me-4"
-                                >Editar</NavLink>
+                                <NavLink to="/admin/challenge" className="btn btn-secondary me-3">
+                                    Cancelar
+                                </NavLink>
                                 <button type="submit" className="btn btn-primary">
                                     Crear reto
                                 </button>

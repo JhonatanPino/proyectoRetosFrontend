@@ -98,7 +98,7 @@ const ChallengeSolve = () => {
                                         Enviar Respuesta
                                     </button>
                                     <button className="btn btn-secondary mt-3 float-end"
-                                        onClick={() => (window.location.href = '/user/category')}
+                                        onClick={() => navigate('/user/category')}
                                     >
                                         Cancelar
                                     </button>

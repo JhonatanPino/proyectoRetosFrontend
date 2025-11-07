@@ -27,6 +27,32 @@ const ChallengeSolve = () => {
         }
     };
 
+    // const handleSubmit = async () => {
+    //     if (!selectedAnswer) {
+    //         alert('Por favor, selecciona una respuesta antes de enviar.');
+    //         return;
+    //     }
+
+    //     try {
+    //         const payload = {
+    //             selected_answer_id: selectedAnswer, 
+    //         };
+    //         console.log('Payload:', payload);
+    //         const response = await Config.submitChallengeAnswer(challengeId, payload);
+    //         alert(response.data.message); 
+    //         toast.success('Respuesta enviada con éxito.');
+
+    //         // Redirigir a los retos de la categoría
+    //         if (challenge && challenge.category_id) {
+    //             navigate(`/user/category/${challenge.category_id}/challenges`);
+    //         } else {
+    //             console.error('No se encontró el ID de la categoría.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error al enviar la respuesta:', error.response?.data || error.message);
+    //         alert('Hubo un error al enviar tu respuesta. Intenta nuevamente.');
+    //     }
+    // };
     const handleSubmit = async () => {
         if (!selectedAnswer) {
             alert('Por favor, selecciona una respuesta antes de enviar.');
@@ -35,14 +61,16 @@ const ChallengeSolve = () => {
 
         try {
             const payload = {
-                selected_answer_id: selectedAnswer, 
+                selected_answer_id: selectedAnswer,
             };
             console.log('Payload:', payload);
+
             const response = await Config.submitChallengeAnswer(challengeId, payload);
-            alert(response.data.message); 
+            console.log('Response:', response.data);
+
+            alert(response.data.message);
             toast.success('Respuesta enviada con éxito.');
 
-            // Redirigir a los retos de la categoría
             if (challenge && challenge.category_id) {
                 navigate(`/user/category/${challenge.category_id}/challenges`);
             } else {

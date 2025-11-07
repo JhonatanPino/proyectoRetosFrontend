@@ -28,7 +28,7 @@ const Navbar = () => {
                     <NavLink className="nav-link" to={`/${getRole()}/user`}>Usuarios</NavLink>
                 </li>
                 <li className="nav-item me-3">
-                    <NavLink className="nav-link" to={`/${getRole()}/category`}>Categorias</NavLink>
+                    <NavLink className="nav-link" to={`/${getRole()}/category`} end>Categorias</NavLink>
                 </li>
 
                 {getRole() === 'admin' && (
@@ -53,7 +53,7 @@ const Navbar = () => {
                     </li>
                 )}
                 <li className="nav-item me-3 ms-3">
-                    <button className="btn btn-link nav-link p-1" onClick={logoutUser}>Cerrar Sesion</button>
+                    <button className="btn btn-link nav-link p-2" onClick={logoutUser}>Cerrar Sesion</button>
                 </li>
                 </>
             )

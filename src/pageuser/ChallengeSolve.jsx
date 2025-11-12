@@ -68,10 +68,16 @@ const ChallengeSolve = () => {
             const response = await Config.submitChallengeAnswer(challengeId, payload);
             console.log('Response:', response.data);
 
-            alert(response.data.message);
-            toast.success('Respuesta enviada con éxito.');
+            if (response.data && response.data.message) {
+                alert(response.data.message);
+                toast.success('Respuesta enviada con éxito.');
+            } else {
+                console.error('La respuesta del backend no tiene el formato esperado:', response.data);
+                alert('Hubo un problema al procesar tu respuesta. Intenta nuevamente.');
+            }
 
             if (challenge && challenge.category_id) {
+                console.log('Redirigiendo a la categoría:', challenge.category_id);
                 navigate(`/user/category/${challenge.category_id}/challenges`);
             } else {
                 console.error('No se encontró el ID de la categoría.');

@@ -76,7 +76,12 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container">
                     <NavLink to="/" className="navbar-brand">
-                        🌲PlataformaRetos
+                        <img
+                            src="/src/assets/siluetaLobo.png"
+                            alt="Logo"
+                            style={{ width: '24px', height: '24px', marginRight: '8px' }}
+                        />
+                        PlataformaRetos
                     </NavLink>
                     <button
                         className="navbar-toggler"
